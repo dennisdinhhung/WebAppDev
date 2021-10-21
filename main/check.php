@@ -20,7 +20,7 @@
         <?php include('static/navbar.php'); ?>
     </div>
     <div>
-        <h1>Home</h1>
+        <h1>Checking</h1>
     </div>
 </body>
 </html>
