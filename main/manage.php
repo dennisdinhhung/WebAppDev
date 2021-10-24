@@ -1,5 +1,5 @@
 <?php
-//Insert start php here
+    include_once 'static/config.php'
 ?>
 
 <html lang="en">
@@ -22,11 +22,64 @@
     <div class="title">
         <h1>Management</h1>
     </div>
-    <div class="">
-        <button>Add data</button>
-        <button>Add schedules</button>
-    </div>
-    <div class="list-doctors">
+    <div class="app">
+        
+        <!--TITLE-->
+        <div class="list-title">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Management</li>
+                </ol>
+            </nav>
+
+            <div class="div-button-add">
+                <button>Add data</button>
+                <button>Add schedules</button>
+            </div>
+        </div>
+
+        <!--BODY-->
+        <div class="list-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Field</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+<?php
+    $data = file_get_contents('../database/test.sql');
+    $sql = mysqli_query($con, "SELECT * FROM doctors");
+    $count = 1;
+    while($row=mysqli_fetch_array($sql))
+    {
+?>
+                    <tr>
+                        <td><?php echo $count;?></td>
+                        <td><?php echo $row['first_name'];?></td>
+                        <td><?php echo $row['last_name'];?></td>
+                        <td><?php echo $row['field'];?></td>
+                        <td><?php echo $row['email'];?></td>
+
+                        <!--Action collumn-->
+                        <td>
+                            <div>
+                                <a href=""><i class="fa fa-pencil"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+<?php   }?>
+                </tbody>
+            </table>
+        </div>
+        
         <!--Insert list of doctors here-->
         <?php
             
