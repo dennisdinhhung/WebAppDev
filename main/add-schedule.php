@@ -1,7 +1,3 @@
-<?php
-//Insert start php here
-?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,8 +15,8 @@
     <div>
         <?php include('static/navbar.php'); ?>
     </div>
-    <div>
-        <h1>Checking</h1>
+    <div class="title">
+        <h1>Add doctors</h1>
     </div>
 </body>
 </html>
