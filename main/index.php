@@ -22,5 +22,18 @@
     <div class="title">
         <h1>Home</h1>
     </div>
+
+    <div>
+        <a href="manage.php">
+            <button type="button" class="btn btn-primary">
+                Management
+            </button></a>
+    </div>
+    <div>
+        <a href="schedule.php">
+            <button type="button" class="btn btn-primary">
+                Schedule
+            </button></a>
+    </div>
 </body>
 </html>
