@@ -36,7 +36,11 @@
             </nav>
 
             <div class="div-button-add">
-                <a href="/main/add-data.php">Add doctors</a>
+                <a href="add-doctor.php">
+                    <button type="button" class="btn btn-primary">
+                        Add doctor
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -70,17 +74,22 @@
 
                         <!--Action collumn-->
                         <td>
-                            <div>
-                                <a href="edit-doctor.php?id=<?php echo $row['id'];?>">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="">
+                            <div class="action-cell">
+                                    <a  href="edit-doctor.php?id=<?php echo $row['id'];?>"
+                                        class="icon-edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a  href="manage.php?id=<?php echo $row['id']?>&del=delete"
+                                        onClick="return confirm('Are you sure you want to delete?')"
+                                        class="icon-edit">
                                         <i class="fas fa-trash"></i>
                                     </a>
                             </div>
                         </td>
                     </tr>
-<?php   }?>
+<?php
+    $count=$count+1;
+       }?>
                 </tbody>
             </table>
         </div>

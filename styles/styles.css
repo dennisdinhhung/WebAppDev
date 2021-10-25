@@ -5,3 +5,16 @@
 .margin{
     margin: 20px;
 }
+
+.icon-edit{
+    padding:0px 7px 0px 7px;
+}
+
+.icon-edit:hover{
+    color: grey;
+}
+.action-cell{
+    display: flex;
+    flex-direction: row;
+    width: 20px;
+}
