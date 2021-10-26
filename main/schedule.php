@@ -80,8 +80,8 @@
                         <td><?php echo $row['year'];?></td>
                         <td><?php echo $row['hour'];?></td>
                         <td><?php echo $row['minute'];?></td>
-                        <td><?php echo $row['number'];?></td>
-                        <td><?php echo $row['floor'];?></td>
+                        <td><?php echo $row['room_no'];?></td>
+                        <td><?php echo $row['room_floor'];?></td>
                         <td><?php 
                                 echo $row['first_name'];
                                 echo " ";
