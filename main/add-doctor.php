@@ -16,7 +16,7 @@
         <?php include('static/navbar.php'); ?>
     </div>
     <div class="title">
-        <h1>Add data</h1>
+        <h1>Add doctor</h1>
     </div>
 </body>
 </html>
