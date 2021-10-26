@@ -1,10 +1,10 @@
 <?php
     include('static/config.php');
 
-    if(isset($_GET['del']))
-		  {
-		          mysqli_query($conn,"DELETE FROM doctors WHERE id = '".$_GET['id']."'");
-		  }
+    if(isset($_GET['del'])){
+        $id = intval($_GET['id']);
+        mysqli_query($conn,"DELETE FROM doctors WHERE id = '$id'");
+	}
 ?>
 
 <html lang="en">
