@@ -70,9 +70,9 @@
 ?>
                     <tr>
                         <td><?php echo $count;?></td>
-                        <td><?php echo $row['number'];?></td>
-                        <td><?php echo $row['floor'];?></td>
-                        <td><?php echo $row['type'];?></td>
+                        <td><?php echo $row['room_no'];?></td>
+                        <td><?php echo $row['room_floor'];?></td>
+                        <td><?php echo $row['room_type'];?></td>
 
                         <!--Action collumn-->
                         <td>
