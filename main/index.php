@@ -26,13 +26,21 @@
     <div>
         <a href="manage.php">
             <button type="button" class="btn btn-primary">
-                Management
+                Check/Manage Doctor 
             </button></a>
     </div>
+
+    <div>
+        <a href="manage.php">
+            <button type="button" class="btn btn-primary">
+                Check/Manage Room 
+            </button></a>
+    </div>
+
     <div>
         <a href="schedule.php">
             <button type="button" class="btn btn-primary">
-                Schedule
+                Check/Manage Schedule
             </button></a>
     </div>
 </body>
