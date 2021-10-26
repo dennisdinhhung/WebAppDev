@@ -9,9 +9,9 @@ CREATE TABLE doctors(
 
 CREATE TABLE room(
             id          INTEGER,
-            number      INTEGER,
-            floor       INTEGER,
-            type        TEXT,
+            room_no      INTEGER,
+            room_floor       INTEGER,
+            room_type        TEXT,
             PRIMARY KEY(id)
             );            
 
@@ -35,11 +35,11 @@ VALUES
 (2, 'Jane', 'Doe', 'Gynecologist', 'janedoeusth@gmail.com'),
 (3, 'James', 'Baxter', 'Surgeon', 'jamesbaxter@gmail.com');
 
-INSERT INTO room (id,number,floor,type)
+INSERT INTO room (id,room_no,room_floor,room_type)
 VALUES 
 (1, 101, 1, 'Office'),
-(2, 102, 1, 'OBGYN room'),
-(3, 402, 4, 'Sugery Room');
+(2, 102, 1, 'OBGYN'),
+(3, 402, 4, 'Sugery');
 
 INSERT INTO schedule (id_room, id_doctor, date, month, year, hour, minute)
 VALUES
