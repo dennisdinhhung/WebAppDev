@@ -1,7 +1,17 @@
 <?php
+    session_start();
+    error_reporting(0);
     include('static/config.php');
 
     $doc_id = intval($_GET['id']);
+    if(isset($_POST['submit'])){
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $field = $_POST['field'];
+        $email = $_POST['email'];
+
+        mysqli_query($conn, "UPDATE doctors SET first_name='$first_name', last_name='$last_name', field='$field', email='$email' WHERE id='$doc_id';");
+    }
 ?>
 
 <html lang="en">
@@ -47,29 +57,33 @@
 ?>
         <div>
             <form role="form" name="adddoc" method="post" onsubmit="return valid();">
-                <div>
+                <div class="form-section">
                     <label for="first_name">First Name</label>
-                    <input type="text" name="firs_name" class="form-control" 
+                    <input type="text" name="first_name" class="form-control" 
                         value="<?php echo htmlentities($data['first_name']);?>" >
                 </div>
 
-                <div>
+                <div class="form-section">
                     <label for="last_name">Last Name</label>
                     <input type="text" name="last_name" class="form-control" 
                         value="<?php echo htmlentities($data['last_name']);?>" >
                 </div>
 
-                <div>
+                <div class="form-section">
                     <label for="last_name">Field</label>
                     <input type="text" name="field" class="form-control" 
                         value="<?php echo htmlentities($data['field']);?>" >
                 </div>
 
-                <div>
+                <div class="form-section">
                     <label for="email">Email</label>
                     <input type="text" name="email" class="form-control" 
                         value="<?php echo htmlentities($data['email']);?>" >
                 </div>
+
+                <button type="submit" name="submit" class="btn btn-primary">
+                    Submit
+                </button>
             </form>
         </div>
 <?php }?>
