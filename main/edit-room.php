@@ -9,7 +9,7 @@
         $room_floor = $_POST['room_floor'];
         $room_type = $_POST['room_type'];
 
-        mysqli_query($conn, "UPDATE room SET room_no='$room_no', room_floor='$room_floor', room_type='$room_type';");
+        mysqli_query($conn, "UPDATE room SET room_no='$room_no', room_floor='$room_floor', room_type='$room_type' WHERE id='$room_id';");
     }
 ?>
 
