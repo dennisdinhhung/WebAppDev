@@ -1,9 +1,10 @@
 <?php
+    session_start();
+    error_reporting(0);
     include('static/config.php');
 
     if(isset($_GET['del'])){
-        $id = intval($_GET['id']);
-        mysqli_query($conn,"DELETE FROM doctors WHERE id = '$id'");
+        mysqli_query($conn,"DELETE FROM doctors WHERE id = '".$_GET['id']."';");
 	}
 ?>
 
