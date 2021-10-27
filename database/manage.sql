@@ -39,7 +39,7 @@ INSERT INTO room (id,room_no,room_floor,room_type)
 VALUES 
 (1, 101, 1, 'Office'),
 (2, 102, 1, 'OBGYN'),
-(3, 402, 4, 'Sugery');
+(3, 402, 4, 'Surgery');
 
 INSERT INTO schedule (id_room, id_doctor, date, month, year, hour, minute)
 VALUES
