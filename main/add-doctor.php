@@ -1,21 +1,34 @@
 <?php
     session_start();
     error_reporting(0);
-    include ('include/config.php');
-    
-    if(isset($_POST['submit'])){
+    include ('static/config.php');
+
+    $new_doc_id_sql = mysqli_query($conn, "SELECT MAX(id) AS max_id FROM doctors;");
+    $new_doc_id = mysqli_fetch_array($new_doc_id_sql);
+    $id = $new_doc_id['max_id']+1;
+    echo $id;
+
+    if(isset($_POST['add'])){
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $field = $_POST['field'];
         $email = $_POST['email'];
 
-        
-        $new_doc_id_sql = mysqli_query($conn, "SELECT MAX(id) AS max_id FROM doctors;");
-        $new_doc_id = mysqli_fetch_array($new_doc_id_sql);
-        $id = $new_doc_id['max_id'];
-    
-        mysqli_query($conn, "INSERT INTO doctors (id,first_name,last_name,field,email)
-        VALUES ($id,$first_name, $last_name, $field, $email);");
+        //$new_doc_id_sql = mysqli_query($conn, "SELECT MAX(id) AS max_id FROM doctors;");
+        //$new_doc_id = mysqli_fetch_array($new_doc_id_sql);
+        //$id = $new_doc_id['max_id'];
+
+        $query = "INSERT INTO doctors (id,first_name,last_name,field,email) VALUES ('$id','$first_name','$last_name','$field', '$email');";
+
+        $insert = mysqli_query($conn, $query);
+
+        if($insert){
+            echo "<script>alert('Doctor info added Successfully');</script>";
+            echo "<script>window.location.href ='doctor.php'</script>";
+        }
+    }
+    else{
+        echo "Error isset()";
     }
 ?>
 
@@ -57,7 +70,7 @@
         <!--BODY-->
         <div class="div-body">
             <div>
-                <form autocomplete="off" role="form" name="adddoc" method="post" onsubmit="return valid();">
+                <form autocomplete="off" role="form" name="add-doc" method="post">
                     <div class="form-section">
                         <label for="first_name">First Name</label>
                         <input type="text" name="first_name" class="form-control" 
@@ -82,7 +95,7 @@
                             placeholder="Enter email address" >
                     </div>
 
-                    <button type="submit" name="submit" class="btn btn-primary">
+                    <button type="submit" name="add" class="btn btn-primary">
                         Add
                     </button>
                 </form>
