@@ -27,14 +27,14 @@
     </div>
 
     <div>
-        <a href="manage.php">
+        <a href="doctor.php">
             <button type="button" class="btn btn-primary">
                 Check/Manage Doctor 
             </button></a>
     </div>
 
     <div>
-        <a href="manage.php">
+        <a href="room.php">
             <button type="button" class="btn btn-primary">
                 Check/Manage Room 
             </button></a>
