@@ -41,7 +41,7 @@
             </nav>
 
             <div class="div-button-add">
-                <a href="add-doctor.php">
+                <a href="add-room.php">
                     <button type="button" class="btn btn-primary">
                         Add room
                     </button>
