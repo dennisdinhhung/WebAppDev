@@ -43,20 +43,20 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="index.php">Doctor</a></li>
+                    <li class="breadcrumb-item"><a href="doctor.php">Doctor</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>
         </div>
 
         <!--BODY-->
-        <div>
+        <div class="div-body">
 <?php
     $sql = mysqli_query($conn, "SELECT * FROM doctors WHERE id = '$doc_id'");
     while($data=mysqli_fetch_array($sql)){
 ?>
         <div>
-            <form role="form" name="adddoc" method="post" onsubmit="return valid();">
+            <form autocomplete="off" role="form" name="adddoc" method="post" onsubmit="return valid();">
                 <div class="form-section">
                     <label for="first_name">First Name</label>
                     <input type="text" name="first_name" class="form-control" 

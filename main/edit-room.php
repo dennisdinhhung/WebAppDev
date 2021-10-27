@@ -49,13 +49,13 @@
         </div>
 
         <!--BODY-->
-        <div>
+        <div class="div-body">
 <?php
     $sql = mysqli_query($conn, "SELECT * FROM room WHERE id = '$room_id'");
     while($data=mysqli_fetch_array($sql)){
 ?>
         <div>
-            <form role="form" name="adddoc" method="post" onsubmit="return valid();">
+            <form autocomplete="off" role="form" name="adddoc" method="post" onsubmit="return valid();">
                 <div class="form-section">
                     <label for="room_no">Room Number</label>
                     <input type="text" name="room_no" class="form-control" 
