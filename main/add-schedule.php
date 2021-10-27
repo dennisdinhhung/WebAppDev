@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    error_reporting(0);
+    include ('include/config.php');
+
+    if(isset($_POST['submit'])){
+
+    }
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,6 +30,18 @@
     </div>
     <div class="title">
         <h1>Add schedule</h1>
+    </div>
+    <div class="app">
+        <!--TITLE-->
+        <div class="list-title margin">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.php">Schedule</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add schedule</li>
+                </ol>
+            </nav>
+        </div>
     </div>
 </body>
 </html>
