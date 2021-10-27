@@ -6,7 +6,6 @@
     $new_doc_id_sql = mysqli_query($conn, "SELECT MAX(id) AS max_id FROM doctors;");
     $new_doc_id = mysqli_fetch_array($new_doc_id_sql);
     $id = $new_doc_id['max_id']+1;
-    echo $id;
 
     if(isset($_POST['add'])){
         $first_name = $_POST['first_name'];
@@ -26,9 +25,6 @@
             echo "<script>alert('Doctor info added Successfully');</script>";
             echo "<script>window.location.href ='doctor.php'</script>";
         }
-    }
-    else{
-        echo "Error isset()";
     }
 ?>
 
