@@ -99,8 +99,6 @@
                 </tbody>
             </table>
         </div>
-        
-        <!--Insert list of doctors here-->
         <?php
             
         ?>
