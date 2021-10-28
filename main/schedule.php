@@ -1,5 +1,9 @@
 <?php
-    include_once 'static/config.php'
+    include('static/config.php');
+
+    if(isset($_GET['del'])){
+        mysqli_query($conn, "DELETE FROM schedule WHERE id = '".$_GET['id']."' "); 
+    }
 ?>
 
 <html lang="en">
@@ -91,11 +95,11 @@
                         <!--Action collumn-->
                         <td>
                             <div class="action-cell">
-                                    <a  href="edit-doctor.php?id=<?php echo $row['id'];?>"
+                                    <a  href="edit-schedule.php?id=<?php echo $row['id'];?>"
                                         class="icon-edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a  href="manage.php?id=<?php echo $row['id']?>&del=delete"
+                                    <a  href="schedule.php?id=<?php echo $row['id']?>&del=delete"
                                         onClick="return confirm('Are you sure you want to delete?')"
                                         class="icon-edit">
                                         <i class="fas fa-trash"></i>
