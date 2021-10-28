@@ -1,10 +1,30 @@
 <?php
     session_start();
     error_reporting(0);
-    include ('include/config.php');
+    include ('static/config.php');
 
-    if(isset($_POST['submit'])){
+    $new_doc_id_sql = mysqli_query($conn, "SELECT MAX(id) AS max_id FROM schedule;");
+    $new_doc_id = mysqli_fetch_array($new_doc_id_sql);
+    $id = $new_doc_id['max_id']+1;
 
+    if(isset($_POST['add'])){
+        $id_room = $_POST['id_room'];
+        $id_doctor = $_POST['id_doctor'];
+        $date = $_POST['date'];
+        $month = $_POST['month'];
+        $year = $_POST['year'];
+        $hour = $_POST['hour'];
+        $minute = $_POST['minute'];
+
+        $query = "INSERT INTO schedule (id, id_room, id_doctor, date, month, year, hour, minute)
+        VALUES ('$id', '$id_room', '$id_doctor', '$date', '$month', '$year', '$hour', '$minute');";
+
+        $insert = mysqli_query($conn, $query);
+
+        if($insert){
+            echo "<script>alert('Schedule info added Successfully');</script>";
+            echo "<script>window.location.href ='schedule.php'</script>";
+        }
     }
 ?>
 
@@ -41,6 +61,61 @@
                     <li class="breadcrumb-item active" aria-current="page">Add schedule</li>
                 </ol>
             </nav>
+        </div>
+
+        <!--BODY-->
+        <div class="div-body">
+            <div>
+                <form autocomplete="off" role="form" name="add-doc" method="post">
+                    <!--Reserve of option input (room)-->
+                    <div class="form-section">
+                        <label for="id_room">Room</label>
+                        <input type="text" name="id_room" class="form-control" 
+                            placeholder="Enter room id">
+                    </div>
+
+                    <!--Reserve of option input (doctor)-->
+                    <div class="form-section">
+                        <label for="id_doctor">Doctor</label>
+                        <input type="text" name="id_doctor" class="form-control" 
+                            placeholder="Enter doctor id">
+                    </div>
+
+                    <div class="form-section">
+                        <label for="date">Date</label>
+                        <input type="text" name="date" class="form-control" 
+                            placeholder="Enter date">
+                    </div>
+
+                    <div class="form-section">
+                        <label for="month">Month</label>
+                        <input type="text" name="month" class="form-control" 
+                            placeholder="Enter month">
+                    </div>
+
+                    <div class="form-section">
+                        <label for="year">Year</label>
+                        <input type="text" name="year" class="form-control" 
+                            placeholder="Enter year">
+                    </div>
+
+                    <div class="form-section">
+                        <label for="hour">Hour</label>
+                        <input type="text" name="hour" class="form-control" 
+                            placeholder="Enter hour">
+                    </div>
+
+                    <div class="form-section">
+                        <label for="minute">Minute</label>
+                        <input type="text" name="minute" class="form-control" 
+                            placeholder="Enter minute">
+                    </div>
+
+                    <button type="submit" name="add" class="btn btn-primary">
+                        Add
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
