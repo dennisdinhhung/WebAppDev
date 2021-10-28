@@ -16,6 +16,7 @@ CREATE TABLE room(
             );            
 
 CREATE TABLE schedule(
+            id          INTEGER,
             id_room     INTEGER,
             id_doctor   INTEGER,
             date        INTEGER,
@@ -23,6 +24,7 @@ CREATE TABLE schedule(
             year        INTEGER,
             hour        INTEGER,
             minute      INTEGER,
+            PRIMARY KEY(id),
             FOREIGN KEY(id_room) REFERENCES room(id),
             FOREIGN KEY(id_doctor) REFERENCES doctors(id)
             );
@@ -41,8 +43,8 @@ VALUES
 (2, 102, 1, 'OBGYN'),
 (3, 402, 4, 'Surgery');
 
-INSERT INTO schedule (id_room, id_doctor, date, month, year, hour, minute)
+INSERT INTO schedule (id, id_room, id_doctor, date, month, year, hour, minute)
 VALUES
-(1, 1, 28, 10, 2021, 14, 30),
-(2, 2, 28, 10, 2021, 10, 00),
-(3, 3, 30, 10, 2021, 15, 15);
+(1, 1, 1, 28, 10, 2021, 14, 30),
+(2, 2, 2, 28, 10, 2021, 10, 00),
+(3, 3, 3, 30, 10, 2021, 15, 15);
