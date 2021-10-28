@@ -41,7 +41,7 @@
             </nav>
 
             <div class="div-button-add">
-                <a href="add-doctor.php">
+                <a href="add-schedule.php">
                     <button type="button" class="btn btn-primary">
                         Add schedule
                     </button>
@@ -55,11 +55,8 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Day</th>
-                        <th>Month</th>
-                        <th>Year</th>
-                        <th>Hour</th>
-                        <th>Minute</th>
+                        <th>Date</th>
+                        <th>Time</th>
                         <th>Room</th>
                         <th>Floor</th>
                         <th>Doctor</th>
@@ -79,11 +76,20 @@
 ?>
                     <tr>
                         <td><?php echo $count;?></td>
-                        <td><?php echo $row['date'];?></td>
-                        <td><?php echo $row['month'];?></td>
-                        <td><?php echo $row['year'];?></td>
-                        <td><?php echo $row['hour'];?></td>
-                        <td><?php echo $row['minute'];?></td>
+                        <td><?php 
+                                echo $row['date'];
+                                echo "/";
+                                echo $row['month'];
+                                echo "/";
+                                echo $row['year'];?></td>
+                        <td><?php 
+                                echo $row['hour'];
+                                echo ":";
+                                if ($row['minute'] == 0){
+                                    echo "00";
+                                }
+                                else{
+                                    echo $row['minute'];}?></td>
                         <td><?php echo $row['room_no'];?></td>
                         <td><?php echo $row['room_floor'];?></td>
                         <td><?php 
