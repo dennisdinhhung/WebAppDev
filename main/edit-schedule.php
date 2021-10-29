@@ -80,6 +80,7 @@
                                         echo " - ";
                                         echo htmlentities($data['room_type']);?>
                             </option>
+                            
 <?php $room = mysqli_query($conn, "SELECT * FROM room;");
 while($row_room = mysqli_fetch_array($room)){
 ?>
