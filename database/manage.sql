@@ -30,10 +30,8 @@ CREATE TABLE schedule(
             );
 
 INSERT INTO doctors (id,first_name,last_name,field,email)
-VALUES (1, 'John', 'Doe', 'Family Doctor', 'johndoeusth@gmail.com');
-
-INSERT INTO doctors (id,first_name,last_name,field,email)
 VALUES 
+(1, 'John', 'Doe', 'Family Doctor', 'johndoeusth@gmail.com'),
 (2, 'Jane', 'Doe', 'Gynecologist', 'janedoeusth@gmail.com'),
 (3, 'James', 'Baxter', 'Surgeon', 'jamesbaxter@gmail.com');
 
