@@ -26,25 +26,26 @@
         <h1>Home</h1>
     </div>
 
-    <div>
+    <img class="center" src="../images\pexels-andrea-piacquadio-3952126.jpg" alt="image1">
+    
+
+    <div class="div-index-button">
+        <div>
         <a href="doctor.php">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="index-button btn btn-dark">
                 Check/Manage Doctor 
             </button></a>
-    </div>
 
-    <div>
         <a href="room.php">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="index-button btn btn-dark">
                 Check/Manage Room 
             </button></a>
-    </div>
-
-    <div>
+        
         <a href="schedule.php">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="index-button btn btn-dark">
                 Check/Manage Schedule
-            </button></a>
+            </button></a>    
+        </div>
     </div>
 </body>
 </html>

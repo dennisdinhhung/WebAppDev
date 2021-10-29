@@ -26,3 +26,27 @@
 .div-body{
     margin: 20px;
 }
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 750px;
+    margin-bottom: 20px;
+}
+.div-index-button{
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 100px;
+}
+
+.index-button{
+    width: 30%;
+    height: 100%;
+}
+
+.index-button:hover{
+    background-color: rgb(53, 53, 53);
+}
