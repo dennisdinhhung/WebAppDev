@@ -2,7 +2,7 @@
     include('static/config.php');
 
     if(isset($_GET['del'])){
-        mysqli_query($conn, "DELETE FROM schedule WHERE id = '".$_GET['id']."' "); 
+        mysqli_query($conn, "DELETE FROM schedule WHERE schedule.id = '".$_GET['id']."' "); 
     }
 ?>
 
@@ -67,7 +67,16 @@
                 <tbody>
 <?php
     $sql = mysqli_query($conn, 
-        "SELECT * FROM schedule 
+        "SELECT date,
+                month,
+                year,
+                hour,
+                minute,
+                room_no,
+                room_floor,
+                first_name,
+                last_name,
+                schedule.id sched_id FROM schedule 
             JOIN doctors ON schedule.id_doctor = doctors.id 
             JOIN room ON schedule.id_room = room.id;");
     $count = 1;
@@ -82,11 +91,18 @@
                                 echo $row['month'];
                                 echo "/";
                                 echo $row['year'];?></td>
-                        <td><?php 
-                                echo $row['hour'];
+                        <td><?php
+                                if ($row['hour'] <= 9){
+                                    echo "0";
+                                    echo $row['hour'];
+                                }
+                                else{
+                                    echo $row['hour'];
+                                }
                                 echo ":";
-                                if ($row['minute'] == 0){
-                                    echo "00";
+                                if ($row['minute'] <= 9){
+                                    echo "0";
+                                    echo $row['minute'];
                                 }
                                 else{
                                     echo $row['minute'];}?></td>
@@ -101,11 +117,11 @@
                         <!--Action collumn-->
                         <td>
                             <div class="action-cell">
-                                    <a  href="edit-schedule.php?id=<?php echo $row['id'];?>"
+                                    <a  href="edit-schedule.php?id=<?php echo $row['sched_id'];?>"
                                         class="icon-edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a  href="schedule.php?id=<?php echo $row['id']?>&del=delete"
+                                    <a  href="schedule.php?id=<?php echo $row['sched_id']?>&del=delete"
                                         onClick="return confirm('Are you sure you want to delete?')"
                                         class="icon-edit">
                                         <i class="fas fa-trash"></i>

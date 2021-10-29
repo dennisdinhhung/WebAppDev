@@ -70,20 +70,53 @@
 ?>
         <div>
             <form autocomplete="off" role="form" name="adddoc" method="post" onsubmit="return valid();">
-                
+
                 <!--Reserve of option input (room)-->
                 <div class="form-section">
-                    <label for="id_room">Room</label>
-                    <input type="text" name="id_room" class="form-control" 
-                        value="<?php echo htmlentities($data['id_room']);?>" >
-                </div>
+                        <label for="id_room"> Select Room</label>
+                            <select name="id_room" class="form-control" required="required">
+                            <option value="<?php echo htmlentities($data['id_room']);?>">
+                                <?php   echo htmlentities($data['room_no']);
+                                        echo " - ";
+                                        echo htmlentities($data['room_type']);?>
+                            </option>
+<?php $room = mysqli_query($conn, "SELECT * FROM room;");
+while($row_room = mysqli_fetch_array($room)){
+?>
+                            <option value="<?php echo htmlentities($row_room['id']);?>">
+                                <?php   echo htmlentities($row_room['room_no']);
+                                        echo " - ";
+                                        echo htmlentities($row_room['room_type']);?>
+                            </option>
+                            
+<?php } ?>
+                            </select>
+                    </div>
 
-                <!--Reserve of option input (doctor)-->
-                <div class="form-section">
-                    <label for="id_doctor">Doctor</label>
-                    <input type="text" name="id_doctor" class="form-control" 
-                        value="<?php echo htmlentities($data['id_doctor']);?>" >
-                </div>
+                    <!--Reserve of option input (doctor)-->
+                    <div class="form-section">
+                        <label for="id_doctor">Select Doctor</label>
+                            <select name="id_doctor" class="form-control" required="required">
+                            <option value="<?php echo htmlentities($data['id_doctor']);?>">
+                                <?php   echo htmlentities($data['first_name']);
+                                        echo " ";
+                                        echo htmlentities($data['last_name']);
+                                        echo " - ";
+                                        echo htmlentities($data['field']);?>
+                            </option>
+<?php $doctor = mysqli_query($conn, "SELECT * FROM doctors;");
+while($row_doctor = mysqli_fetch_array($doctor)){
+?>
+                            <option value="<?php echo htmlentities($row_doctor['id']);?>">
+                                <?php   echo htmlentities($row_doctor['first_name']);
+                                        echo " ";
+                                        echo htmlentities($row_doctor['last_name']);
+                                        echo " - ";
+                                        echo htmlentities($row_doctor['field']);?>
+                            </option>
+<?php } ?>
+                            </select>
+                    </div>
 
                 <div class="form-section">
                     <label for="date">Date</label>

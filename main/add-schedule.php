@@ -16,6 +16,10 @@
         $hour = $_POST['hour'];
         $minute = $_POST['minute'];
 
+        echo $id_room;
+        echo $id_doctor;
+        echo $date;
+
         $query = "INSERT INTO schedule (id, id_room, id_doctor, date, month, year, hour, minute)
         VALUES ('$id', '$id_room', '$id_doctor', '$date', '$month', '$year', '$hour', '$minute');";
 
@@ -57,7 +61,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="index.php">Schedule</a></li>
+                    <li class="breadcrumb-item"><a href="schedule.php">Schedule</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Add schedule</li>
                 </ol>
             </nav>
@@ -66,21 +70,41 @@
         <!--BODY-->
         <div class="div-body">
             <div>
-                <form autocomplete="off" role="form" name="add-doc" method="post">
+                <form autocomplete="off" role="form" name="add-sched" method="post">
                     <!--Reserve of option input (room)-->
                     <div class="form-section">
-                        <label for="id_room">Room</label>
-                        <input type="text" name="id_room" class="form-control" 
-                            placeholder="Enter room id">
+                        <label for="id_room"> Select Room</label>
+                            <select name="id_room" class="form-control" required="required">
+<?php $room = mysqli_query($conn, "SELECT * FROM room;");
+while($row_room = mysqli_fetch_array($room)){
+?>
+                            <option value="<?php echo htmlentities($row_room['id']);?>">
+                                <?php   echo htmlentities($row_room['room_no']);
+                                        echo " - ";
+                                        echo htmlentities($row_room['room_type']);?>
+                            </option>
+                            
+<?php } ?>
+                            </select>
                     </div>
 
                     <!--Reserve of option input (doctor)-->
                     <div class="form-section">
-                        <label for="id_doctor">Doctor</label>
-                        <input type="text" name="id_doctor" class="form-control" 
-                            placeholder="Enter doctor id">
+                        <label for="id_doctor">Select Doctor</label>
+                            <select name="id_doctor" class="form-control" required="required">
+<?php $doctor = mysqli_query($conn, "SELECT * FROM doctors;");
+while($row_doctor = mysqli_fetch_array($doctor)){
+?>
+                            <option value="<?php echo htmlentities($row_doctor['id']);?>">
+                                <?php   echo htmlentities($row_doctor['first_name']);
+                                        echo " ";
+                                        echo htmlentities($row_doctor['last_name']);
+                                        echo " - ";
+                                        echo htmlentities($row_doctor['field']);?>
+                            </option>
+<?php } ?>
+                            </select>
                     </div>
-
                     <div class="form-section">
                         <label for="date">Date</label>
                         <input type="text" name="date" class="form-control" 
